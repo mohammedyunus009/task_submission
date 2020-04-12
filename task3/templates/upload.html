@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Upload</title>
+ </head>
+<body>
+
+<!-- <form id="upload-form" action="/protected" method="POST" enctype="multipart/form-data"> -->
+
+    <strong>Files:</strong><br>
+
+Emp_id<input id ="Emp_id" type="text"><br/>
+Name<input id ="Name" type="text" ><br/>
+Email<input id="Email" type="text"><br/>
+Age<input id="age" type="text"><br/>
+salary<input id ="salary" type="text"><br/>
+Phone Number<input id ="Phone" type="text"><br/>
+address <input id ="address" type="text"><br/>
+
+    <input id="file-picker" type="file" name="file" accept="jpg/*" multiple>
+    <input type="submit" value="subV2!" id="upload-button" onclick="sendFile()">
+
+<!--     <div id="msg"></div>
+    <input type="submit" value="Upload!" id="upload-button" onclick="sendFile()">
+    <h1 id="status_text"></h1> -->
+<!-- </form> -->
+
+</body>
+<script>
+    $("#file-picker").change(function(){
+        var input = document.getElementById('file-picker');
+        for (var i=0; i<input.files.length; i++)
+        {
+        //koala.jpg, koala.JPG substring(index) lastIndexOf('a') koala.1.jpg
+            var ext= input.files[i].name.substring(input.files[i].name.lastIndexOf('.')+1).toLowerCase()
+            // if ((ext == '') || (ext == ''))
+            // {
+            //     $("#msg").text("Files are supported")
+            // }
+            // else
+            // {
+            //     $("#msg").text("Files are NOT supported")
+            //     document.getElementById("file-picker").value ="";
+            // }
+        }
+    } );
+
+      function sendFile() {
+      var formData = new FormData();
+      formData.append("name1", document.getElementById("Name").value);
+      formData.append("Emp_id", document.getElementById("Emp_id").value);
+      formData.append("Email", document.getElementById("Email").value);
+      formData.append("age", document.getElementById("age").value);
+      formData.append("salary", document.getElementById("salary").value);
+      formData.append("Phone", document.getElementById("Phone").value);
+      formData.append("address", document.getElementById("address").value);
+      formData.append("address", document.getElementById("address").value);
+      formData.append("uploadedFile", document.getElementById("file-picker").files[0]);
+      
+      // formData.append("uploadedFile", document.getElementById("file-picker").files[0]);
+      // formData.append("uploadedFile", document.getElementById("file-picker").files[0]);
+
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/upload_data");
+      xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4) {
+              // alert(xhr.responseText);
+              //document.getElementById("status_text").innerHTML = xhr.responseText;
+              console.log(xhr.responseText);
+              window.location.href = "./success";
+          }
+      };
+      xhr.send(formData);
+    }
+
+	
+</script>
+</html>

@@ -1,0 +1,95 @@
+<style type="text/css">
+                body {
+              font-size: 14px;
+            }
+
+            .drag-handler {
+              width: 8em;
+              position: relative;
+              background-color: #E4E6EB;
+              background-image: linear-gradient(45deg, #E4E6EB, #E4E6EB 2px, #fff 2px, #fff 4px, #E4E6EB 4px, #E4E6EB 9px, #fff 9px, #fff 11px, #E4E6EB 11px, #E4E6EB 16px, #fff 16px, #fff 18px, #E4E6EB 18px, #E4E6EB 22px);
+              background-size: 10px 20px;
+              cursor: move;
+              border-top: 2px solid #FFF;
+              border-bottom: 2px solid #FFF;
+            }
+
+            .drag-handler:active {
+              background-image: linear-gradient(45deg, #bab86c, #bab86c 2px, #fff 2px, #fff 4px, #bab86c 4px, #bab86c 9px, #fff 9px, #fff 11px, #bab86c 11px, #bab86c 16px, #fff 16px, #fff 18px, #bab86c 18px, #bab86c 22px);
+              background-size: 10px 20px;
+            }
+
+</style>
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th>
+        Drag Button
+      </th>
+      <th>
+        Number
+      </th>
+      <th>
+        Jabcode
+      </th>
+    </tr>
+  </thead>
+
+  <tbody id="sortable">
+    <tr>
+      <td class="ui-state-default drag-handler" ></td>
+      <td>1</td>
+        <td>E24.9</td>
+    </tr>
+    <tr>
+      <td class="ui-state-default drag-handler" ></td>
+      <td>2</td>
+              <td>J92.9</td>
+    </tr>
+    <tr>
+      <td class="ui-state-default drag-handler" ></td>
+      <td>3</td>
+              <td>A10.2</td>
+    </tr>
+        <tr>
+      <td class="ui-state-default drag-handler" ></td>
+      <td>4</td>
+              <td>B10.2</td>
+    </tr>
+        <tr>
+      <td class="ui-state-default drag-handler" ></td>
+      <td>5</td>
+              <td>C4.9</td>
+    </tr>
+        <tr>
+      <td class="ui-state-default drag-handler" ></td>
+      <td>6</td>
+              <td>D10.11</td>
+    </tr>
+        <tr>
+      <td class="ui-state-default drag-handler" ></td>
+      <td>7</td>
+              <td>F19.10</td>             
+    </tr>
+        <tr>
+      <td class="ui-state-default drag-handler" ></td>
+      <td>8</td>
+      <td>Z20.2</td>
+    </tr>
+  </tbody>
+</table>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script> 
+    <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+  $("#sortable").sortable({
+    handle: ".drag-handler"
+  });
+  $("#sortable").disableSelection();
+
+});
+
+</script>
